@@ -9,7 +9,10 @@ using RestAPI_using_.Netcore8.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+<<<<<<< HEAD
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+=======
+>>>>>>> 17e3a8fabd919c98a0d6580bcb3a8967631bec5b
 var builder = WebApplication.CreateBuilder(args);
 // Db connection config
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -40,7 +43,11 @@ builder.Services.AddAuthentication(auth =>
     x.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
+<<<<<<< HEAD
         //IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key)),
+=======
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key)),
+>>>>>>> 17e3a8fabd919c98a0d6580bcb3a8967631bec5b
         ValidateIssuer = false,
         ValidateAudience = false
     };
@@ -48,7 +55,11 @@ builder.Services.AddAuthentication(auth =>
 //Required for Authorization
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+<<<<<<< HEAD
 //builder.Services.AddEndpointsApiExplorer();
+=======
+builder.Services.AddEndpointsApiExplorer();
+>>>>>>> 17e3a8fabd919c98a0d6580bcb3a8967631bec5b
 //Swagger Configuration
 builder.Services.AddSwaggerGen(options =>
 {
@@ -78,11 +89,19 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 //CORS Policy
+<<<<<<< HEAD
 /*builder.Services.AddCors(p => p.AddPolicy("CorsPolicy", build =>
 {
     //modify URL with required domain of the front-end app
     build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
 }));*/
+=======
+builder.Services.AddCors(p => p.AddPolicy("CorsPolicy", build =>
+{
+    //modify URL with required domain of the front-end app
+    build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+}));
+>>>>>>> 17e3a8fabd919c98a0d6580bcb3a8967631bec5b
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -91,7 +110,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
+<<<<<<< HEAD
 //app.UseCors("CorsPolicy");/
+=======
+app.UseCors("CorsPolicy");
+>>>>>>> 17e3a8fabd919c98a0d6580bcb3a8967631bec5b
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
